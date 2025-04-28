@@ -15,7 +15,10 @@ public class Robot {
         int resta = (int) (Pasos*0.1);
         int bat = bateria.getCarga();
         int resta2 = bat-resta;
-        bateria.setCarga(resta2);
+        if (bat !=0){
+            bateria.setCarga(resta2);
+        }
+
     }
 
     public void retroceder(int pasos){
@@ -23,7 +26,10 @@ public class Robot {
         int resta = (int) (Pasos*0.1);
         int bat = bateria.getCarga();
         int resta2 = bat-resta;
-        bateria.setCarga(resta2);
+        if (bat !=0){
+            bateria.setCarga(resta2);
+        }
+
     }
 
     public void dormir(){

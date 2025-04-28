@@ -14,46 +14,47 @@ public class Hombre {
         int opc;
 
         Scanner t = new Scanner(System.in);
-
-        System.out.println("""
-                --------------------------------------
-                >>Juega con tu robot<<
-                --------------------------------------
-                1)Avanza
-                2)Retrocede
-                3)ver energia actual
-                4)Dormir al robot(finaliza tu secion)
-                5)Despertar al robot
-                6)Recargar bateria
-                ----------------------------------------
-                """);
-        opc = t.nextInt();
-        switch (opc){
-            case 1 ->{
-                int pasos;
-                System.out.println("Ingresa cantidad de pasos que quieres avanzar: ");
-                pasos = t.nextInt();
-                robot.avanzar(pasos);
+        do {
+            System.out.println("""
+                    --------------------------------------
+                    >>Juega con tu robot<<
+                    --------------------------------------
+                    1)Avanza
+                    2)Retrocede
+                    3)ver energia actual
+                    4)Dormir al robot(finaliza tu secion)
+                    5)Despertar al robot
+                    6)Recargar bateria
+                    ----------------------------------------
+                    """);
+            opc = t.nextInt();
+            switch (opc) {
+                case 1 -> {
+                    int pasos;
+                    System.out.println("Ingresa cantidad de pasos que quieres avanzar: ");
+                    pasos = t.nextInt();
+                    robot.avanzar(pasos);
+                }
+                case 2 -> {
+                    int pasos;
+                    System.out.println("Ingresa cantidad de pasos que quieres retroceder: ");
+                    pasos = t.nextInt();
+                    robot.retroceder(pasos);
+                }
+                case 3 -> {
+                    System.out.println(robot.energiaActual());
+                }
+                case 4 -> {
+                    robot.dormir();
+                }
+                case 5 -> {
+                    robot.despertar();
+                }
+                case 6 -> {
+                    robot.recargar();
+                }
             }
-            case 2 ->{
-                int pasos;
-                System.out.println("Ingresa cantidad de pasos que quieres retroceder: ");
-                pasos = t.nextInt();
-                robot.retroceder(pasos);
-            }
-            case 3 ->{
-                System.out.println(robot.energiaActual());
-            }
-            case 4 ->{
-                robot.dormir();
-            }
-            case 5 ->{
-                robot.despertar();
-            }
-            case 6 ->{
-                robot.recargar();
-            }
-        }
+        }while (opc!=4);
     }
 
     public String getNombre() {
